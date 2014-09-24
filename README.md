@@ -178,7 +178,7 @@ See [LICENSE](LICENSE.md)
 
 ## Thanks
 
-- To @mrship for the [middleman-ember](https://github.com/mrship/middleman-ember) gem, used by Emberman
-- To @GutenYe for the [sprockets-handlebars_template](https://github.com/GutenYe/sprockets-handlebars_template), also used by Emberman
-- To @tdreyno, @bhollis and the [other contributors](https://github.com/middleman/middleman/graphs/contributors) of the excellent [Middleman](http://middlemanapp.com) static site generator
-- And to @wycats, @tomdale, @wagenet, @stefanpenner, @rwjblue, @ebryn, @machty, @trek and the [rest of the contributors](https://github.com/emberjs/ember.js/graphs/contributors) of the incredible [Ember.js](http://emberjs.com/) framework, as well as Ember Data and [Handlebars](http://handlebarsjs.com/)
+- To [@mrship](https://github.com/mrship) for the [middleman-ember](https://github.com/mrship/middleman-ember) gem, used by Emberman
+- To [@GutenYe](https://github.com/GutenYe) for the [sprockets-handlebars_template](https://github.com/GutenYe/sprockets-handlebars_template), also used by Emberman
+- To [@tdreyno](https://github.com/tdreyno), [@bhollis](https://github.com/bhollis) and the [other contributors](https://github.com/middleman/middleman/graphs/contributors) of the excellent [Middleman](http://middlemanapp.com) static site generator
+- And to [@wycats](https://github.com/wycats), [@tomdale](https://github.com/tomdale), [@wagenet](https://github.com/wagenet), [@stefanpenner](https://github.com/stefanpenner), [@rwjblue](https://github.com/rwjblue), [@ebryn](https://github.com/ebryn), [@machty](https://github.com/machty), [@trek](https://github.com/trek) and the [rest of the contributors](https://github.com/emberjs/ember.js/graphs/contributors) of the incredible [Ember.js](http://emberjs.com/) framework, as well as Ember Data and [Handlebars](http://handlebarsjs.com/)
