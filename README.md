@@ -23,7 +23,7 @@ Add this line to your Middleman application's `Gemfile`:
 ```ruby
 # Gemfile
 
-gem 'emberman', github: 'minusfive/emberman'
+gem 'emberman', '~> 0.0.1'
 ```
 
 Then run:
