@@ -6,15 +6,15 @@
 
 Emberman is a simple [extension](http://middlemanapp.com/advanced/custom/) which allows you to easily serve an [Ember](http://emberjs.com/) app from your [Middleman](http://middlemanapp.com/) static site. It works by wrapping other [excellent gems](#thanks), along with some basic configuration, to get you quickly started.
 
-By **default**, Emberman...
-  - Auto-loads the following assets into [Middleman's Asset Pipeline](http://middlemanapp.com/basics/asset-pipeline/):
+## Features
+
+  - Auto-loads into [Middleman's Asset Pipeline](http://middlemanapp.com/basics/asset-pipeline/):
     + [Ember 1.8.0.beta.2](https://github.com/emberjs/ember.js/releases/tag/v1.8.0-beta.2)
     + [Ember Data 1.0.0.beta.10](https://github.com/emberjs/data/releases/tag/v1.0.0-beta.10)
     + [Handlebars 1.3.0](https://github.com/wycats/handlebars.js/releases/tag/v1.3.0)
-  - Allows you to set a custom Ember app directory (relative to Middleman's JavaScript assets directory)
   - Pre-compiles handlebars templates
-  - Automatically switches to the production versions of Ember + Ember Data on `build`
-  - Automatically ignores ingredient files on `build`, so everything is compiled into a single JavaScript file
+  - Uses production versions of Ember + Ember Data on `build`
+  - Ignores ingredient files on `build`, compiles into a single JS file
 
 ## Installation
 
@@ -174,7 +174,7 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
-See [LICENSE](LICENSE.md)
+See [LICENSE](LICENSE.md).
 
 ## Thanks
 
