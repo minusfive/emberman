@@ -1,4 +1,4 @@
-Copyright (c) 2014 Jorge Villalobos
+Copyright (c) 2014 [Jorge Villalobos](@minusfive)
 
 # MIT License
 
