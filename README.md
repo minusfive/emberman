@@ -1,4 +1,4 @@
-# Emberman [v0.0.1](CHANGELOG.md)
+# Emberman [v0.0.2](CHANGELOG.md)
 
 [Middleman](http://middlemanapp.com/) + [Ember](http://emberjs.com/), sitting in a tree...
 
@@ -23,7 +23,7 @@ Add this line to your Middleman application's `Gemfile`:
 ```ruby
 # Gemfile
 
-gem 'emberman', '~> 0.0.1'
+gem 'emberman', '~> 0.0.2'
 ```
 
 Then run:
@@ -165,7 +165,7 @@ If you'd prefer to use different versions of Ember, Ember Data or Handlebars, ad
 gem 'ember-source',       '1.7.0'
 gem 'ember-data-source',  '0.14'
 gem 'handlebars-source',  '1.2.1'
-gem 'emberman'
+gem 'emberman',           '~> 0.0.2'
 ```
 
 ## Contributing

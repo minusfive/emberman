@@ -1,5 +1,8 @@
 # Emberman Changelog
 
+### 0.0.2 (2014/09/24)
+Minor cleanup
+
 ### 0.0.1 (2014/09/23)
 
 Initial gem release, with:
