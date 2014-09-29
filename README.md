@@ -1,4 +1,4 @@
-# Emberman [v0.0.3](CHANGELOG.md)
+# Emberman [![Gem Version](https://badge.fury.io/rb/emberman.svg)](http://badge.fury.io/rb/emberman)
 
 [Middleman](http://middlemanapp.com/) + [Ember](http://emberjs.com/), sitting in a tree...
 

@@ -1,4 +1,5 @@
-# Emberman Changelog
+# Emberman Changelog [![Gem Version](https://badge.fury.io/rb/emberman.svg)](http://badge.fury.io/rb/emberman)
+
 ### 0.0.3 (2014/09/29)
 Upgrade default [Ember to v1.8.0.beta.3](https://github.com/emberjs/ember.js/blob/v1.8.0-beta.3/CHANGELOG.md)
 
@@ -6,7 +7,6 @@ Upgrade default [Ember to v1.8.0.beta.3](https://github.com/emberjs/ember.js/blo
 Minor cleanup
 
 ### 0.0.1 (2014/09/23)
-
 Initial gem release, with:
   - Auto-load:
     + [Ember 1.8.0.beta.2](https://github.com/emberjs/ember.js/releases/tag/v1.8.0-beta.2)
