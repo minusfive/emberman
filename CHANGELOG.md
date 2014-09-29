@@ -1,4 +1,6 @@
 # Emberman Changelog
+### 0.0.3 (2014/09/29)
+Upgrade default [Ember to v1.8.0.beta.3](https://github.com/emberjs/ember.js/blob/v1.8.0-beta.3/CHANGELOG.md)
 
 ### 0.0.2 (2014/09/24)
 Minor cleanup

@@ -1,4 +1,4 @@
-# Emberman [v0.0.2](CHANGELOG.md)
+# Emberman [v0.0.3](CHANGELOG.md)
 
 [Middleman](http://middlemanapp.com/) + [Ember](http://emberjs.com/), sitting in a tree...
 
@@ -9,7 +9,7 @@ Emberman is a simple [extension](http://middlemanapp.com/advanced/custom/) which
 ## Features
 
   - Auto-loads into [Middleman's Asset Pipeline](http://middlemanapp.com/basics/asset-pipeline/):
-    + [Ember 1.8.0.beta.2](https://github.com/emberjs/ember.js/releases/tag/v1.8.0-beta.2)
+    + [Ember 1.8.0.beta.3](https://github.com/emberjs/ember.js/releases/tag/v1.8.0-beta.3)
     + [Ember Data 1.0.0.beta.10](https://github.com/emberjs/data/releases/tag/v1.0.0-beta.10)
     + [Handlebars 1.3.0](https://github.com/wycats/handlebars.js/releases/tag/v1.3.0)
   - Pre-compiles handlebars templates
@@ -23,7 +23,7 @@ Add this line to your Middleman application's `Gemfile`:
 ```ruby
 # Gemfile
 
-gem 'emberman', '~> 0.0.2'
+gem 'emberman', '~> 0.0.3'
 ```
 
 Then run:
@@ -48,7 +48,7 @@ $ middleman
 
 ## Other requirements
 
-For now, Ember's [and Emberman's] only other requirement is for **jQuery** to be present. This may change soon ;)
+For now, Ember's [and Emberman's] only other requirement is for [jQuery](https://jquery.com/) to be present. This may change soon ;)
 
 ## Configuration
 
@@ -165,7 +165,7 @@ If you'd prefer to use different versions of Ember, Ember Data or Handlebars, ad
 gem 'ember-source',       '1.7.0'
 gem 'ember-data-source',  '0.14'
 gem 'handlebars-source',  '1.2.1'
-gem 'emberman',           '~> 0.0.2'
+gem 'emberman',           '~> 0.0.3'
 ```
 
 ## Contributing
@@ -181,4 +181,4 @@ See [LICENSE](LICENSE.md).
 - To [@mrship](https://github.com/mrship) for the [middleman-ember](https://github.com/mrship/middleman-ember) gem, used by Emberman
 - To [@GutenYe](https://github.com/GutenYe) for the [sprockets-handlebars_template](https://github.com/GutenYe/sprockets-handlebars_template), also used by Emberman
 - To [@tdreyno](https://github.com/tdreyno), [@bhollis](https://github.com/bhollis) and the [other contributors](https://github.com/middleman/middleman/graphs/contributors) of the excellent [Middleman](http://middlemanapp.com) static site generator
-- And to [@wycats](https://github.com/wycats), [@tomdale](https://github.com/tomdale), [@wagenet](https://github.com/wagenet), [@stefanpenner](https://github.com/stefanpenner), [@rwjblue](https://github.com/rwjblue), [@ebryn](https://github.com/ebryn), [@machty](https://github.com/machty), [@trek](https://github.com/trek) and the [rest of the contributors](https://github.com/emberjs/ember.js/graphs/contributors) of the incredible [Ember.js](http://emberjs.com/) framework, as well as Ember Data and [Handlebars](http://handlebarsjs.com/)
+- And to [@wycats](https://github.com/wycats), [@tomdale](https://github.com/tomdale), [@wagenet](https://github.com/wagenet), [@stefanpenner](https://github.com/stefanpenner), [@rwjblue](https://github.com/rwjblue), [@ebryn](https://github.com/ebryn), [@machty](https://github.com/machty), [@trek](https://github.com/trek) and the [rest of contributors](https://github.com/emberjs/ember.js/graphs/contributors) to the incredible [Ember.js](http://emberjs.com/) framework, as well as Ember Data and [Handlebars](http://handlebarsjs.com/)
