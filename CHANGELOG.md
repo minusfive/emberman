@@ -1,5 +1,8 @@
 # Emberman Changelog [![Gem Version](https://badge.fury.io/rb/emberman.svg)](http://badge.fury.io/rb/emberman)
 
+### 0.1.1 (2014/11/04)
+- Upgrade default [Ember to v1.8.1 (stable)](https://github.com/emberjs/ember.js/blob/v1.8.1/CHANGELOG.md)
+
 ### 0.1 (2014/11/03)
 - Upgrade default [Ember to v1.8.0 (stable)](https://github.com/emberjs/ember.js/blob/v1.8.0/CHANGELOG.md)
 
