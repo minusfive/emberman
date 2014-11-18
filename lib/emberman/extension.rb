@@ -1,30 +1,42 @@
-require 'sprockets/ember_handlebars_template'
-require 'middleman-ember'
-
 module Middleman
   class EmbermanExtension < Extension
-    option :app_dir, 'ember', 'Ember app directory relative to :js_dir'
+    option :format,     :ember_cli, 'Ember format: :ember_cli (default) or :globals'
+    option :directory,  :ember,     'Ember app directory relative to :js_dir'
+    option :app_name,   :emberman,  'Name of your Ember app'
 
     def initialize(app, options_hash={}, &block)
       super
-      
-      app_dir = options.app_dir
+
+      register_child_extensions
+
+      scoped_self = self
 
       app.configure :development do
-        activate :ember
+        scoped_self.activate_child_extensions self
       end
 
       app.configure :build do
-        activate :ember
-        set :ember_variant, :production
-        ignore File.join js_dir, app_dir, '*'
+        scoped_self.activate_child_extensions self
       end
     end
 
-    def after_configuration
-      templates_dir = File.join options.app_dir, 'templates'
-      app.sprockets.engines['.handlebars'].options[:key_name_proc] = proc do |t|
-        t.sub(%r~^#{templates_dir}/~, "")
+    def register_child_extensions
+      case options.format
+      when :globals
+        require_relative 'globals/globals.rb'
+        Globals.register :emberman_globals
+      else
+        require_relative 'cli/cli.rb'
+        CLI.register :emberman_cli
+      end
+    end
+
+    def activate_child_extensions(app)
+      case options.format
+      when :globals
+        app.activate :emberman_globals, directory: options.directory
+      else
+        app.activate :emberman_cli, app_name: options.app_name
       end
     end
   end
