@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency     'middleman-ember',                '~> 0.2.3'
   spec.add_runtime_dependency     'sprockets-handlebars_template',  '~> 1.0.0'
   spec.add_runtime_dependency     'handlebars-source',              '2.0.0'
-  spec.add_runtime_dependency     'ember-source',                   '1.9.0.beta.3'
+  spec.add_runtime_dependency     'ember-source',                   '1.9.0'
   spec.add_runtime_dependency     'ember-data-source',              '1.0.0.beta.12'
 
   spec.add_development_dependency 'bundler', '~> 1.7.7'
