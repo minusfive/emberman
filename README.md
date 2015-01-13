@@ -9,8 +9,8 @@ Emberman is a simple [extension](http://middlemanapp.com/advanced/custom/) which
 ## Features
 
   - Auto-loads into [Middleman's Asset Pipeline](http://middlemanapp.com/basics/asset-pipeline/):
-    + [Ember v1.9.0](https://github.com/emberjs/ember.js/blob/v1.9.0/CHANGELOG.md)
-    + [Ember Data v1.0.0.beta.12](https://github.com/emberjs/data/blob/v1.0.0-beta.12/CHANGELOG.md)
+    + [Ember v1.10.0.beta.4](https://github.com/emberjs/ember.js/blob/v1.10.0-beta.4/CHANGELOG.md)
+    + [Ember Data v1.0.0.beta.14.1](https://github.com/emberjs/data/blob/v1.0.0-beta.14.1/CHANGELOG.md)
     + [Handlebars v2.0.0](https://github.com/wycats/handlebars.js/blob/v2.0.0/release-notes.md)
   - Pre-compiles handlebars templates
   - Uses production versions of Ember + Ember Data on `build`
@@ -23,7 +23,7 @@ Add this line to your Middleman application's `Gemfile`:
 ```ruby
 # Gemfile
 
-gem 'emberman', '~> 0.1.3'
+gem 'emberman', '~> 0.1.4'
 ```
 
 Then run:
@@ -165,7 +165,7 @@ If you'd prefer to use different versions of Ember, Ember Data or Handlebars, ad
 gem 'ember-source',       '1.8.1'
 gem 'ember-data-source',  '0.14'
 gem 'handlebars-source',  '1.3.0'
-gem 'emberman',           '~> 0.1.3'
+gem 'emberman',           '~> 0.1.4'
 ```
 
 ## Contributing
