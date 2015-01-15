@@ -1,43 +1,96 @@
+require 'middleman-core'
+require 'middleman/rack'
 module Middleman
   class EmbermanExtension < Extension
-    option :format,     :ember_cli, 'Ember format: :ember_cli (default) or :globals'
-    option :directory,  :ember,     'Ember app directory relative to :js_dir'
-    option :app_name,   :emberman,  'Name of your Ember app'
+    option :app_name, :emberman, 'Name of your Ember app'
 
     def initialize(app, options_hash={}, &block)
       super
 
-      register_child_extensions
+      emberman = self
 
-      scoped_self = self
+      # app.configure :development do
+      #   emberman.invalidate_resources_not_ignored_cache!
+      # end
 
-      app.configure :development do
-        scoped_self.activate_child_extensions self
-      end
+      # app.configure :build do
+      #   emberman.invalidate_resources_not_ignored_cache!
+      # end
 
-      app.configure :build do
-        scoped_self.activate_child_extensions self
+      # app.after_configuration do
+      #   # Add ember directory to list of ignored files
+      #   config[:file_watcher_ignore] += [/^ember(\/|$)/]
+      # end
+
+      app.ready do
+        # app = self
+        if emberman.ember_dir_exists?
+          if emberman.ember_cli_app_initialized?
+            emberman.start_ember_server
+          else
+            emberman.initialize_ember_cli_app
+          end
+        else
+          emberman.generate_ember_cli_app
+        end
       end
     end
 
-    def register_child_extensions
-      case options.format
-      when :globals
-        require_relative 'globals/globals.rb'
-        Globals.register :emberman_globals
-      else
-        require_relative 'cli/cli.rb'
-        CLI.register :emberman_cli
+    def start_ember_server
+      app.logger.info '== Emberman: Starting ember-cli server'
+      Dir.chdir(File.join(app.root,'ember')) do
+        system 'ember s --proxy http://localhost:4567 &', err: :out
       end
     end
 
-    def activate_child_extensions(app)
-      case options.format
-      when :globals
-        app.activate :emberman_globals, directory: options.directory
-      else
-        app.activate :emberman_cli, app_name: options.app_name
+    def initialize_ember_cli_app
+      app_name = options.app_name.dasherize
+      app.logger.info "== Emberman: Initializing ember-cli app \"#{app_name}\" in ./ember directory"
+      Dir.chdir(File.join(app.root,'ember')) do
+        system "ember init #{app_name}", err: :out
       end
+      start_ember_server
+    end
+
+    def generate_ember_cli_app
+      app_name = options.app_name.dasherize
+      app.logger.info "== Emberman: Generating ember-cli app \"#{app_name}\" in ./ember directory"
+      Dir.chdir(app.root) do
+        system "ember new #{app_name}", err: :out
+        if File.directory?(File.join(app.root, app_name))
+          FileUtils.mv app_name, 'ember'
+        end
+        start_ember_server
+      end
+    end
+
+    private
+    def ember_dir_exists?
+      File.directory? File.join(app.root, 'ember')
+    end
+
+
+    def ember_cli_app_initialized?
+      dirs  = %w( app
+                  dist
+                  config
+                  public
+                  tests )
+
+      files = %w( .ember-cli
+                  Brocfile.js
+                  bower.json
+                  package.json )
+
+      dirs_exist = dirs.all? do |dir_path|
+        File.directory? File.join(app.root, 'ember', dir_path)
+      end
+
+      files_exist = files.all? do |file_path|
+        File.file? File.join(app.root, 'ember', file_path)
+      end
+
+      dirs_exist && files_exist
     end
   end
 end
