@@ -37,14 +37,14 @@ module Middleman
     end
 
     def start_ember_server
-      app.logger.info '== Emberman: Starting ember-cli server'
+      app.logger.info "\n\r== Emberman: Starting ember-cli server"
       Dir.chdir(File.join(app.root,'ember')) do
         system 'ember s --proxy http://localhost:4567 &', err: :out
       end
     end
 
     def initialize_ember_cli_app
-      app_name = options.app_name.dasherize
+      app_name = options.app_name.to_s.parameterize
       app.logger.info "== Emberman: Initializing ember-cli app \"#{app_name}\" in ./ember directory"
       Dir.chdir(File.join(app.root,'ember')) do
         system "ember init #{app_name}", err: :out
@@ -53,7 +53,7 @@ module Middleman
     end
 
     def generate_ember_cli_app
-      app_name = options.app_name.dasherize
+      app_name = options.app_name.to_s.parameterize
       app.logger.info "== Emberman: Generating ember-cli app \"#{app_name}\" in ./ember directory"
       Dir.chdir(app.root) do
         system "ember new #{app_name}", err: :out
@@ -64,7 +64,6 @@ module Middleman
       end
     end
 
-    private
     def ember_dir_exists?
       File.directory? File.join(app.root, 'ember')
     end
