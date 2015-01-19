@@ -22,6 +22,10 @@ module Middleman
       #   config[:file_watcher_ignore] += [/^ember(\/|$)/]
       # end
 
+      if app.environment == :build
+        return
+      end
+
       app.ready do
         # app = self
         if emberman.ember_dir_exists?
@@ -38,7 +42,7 @@ module Middleman
 
     def start_ember_server
       app.logger.info "\n\r== Emberman: Starting ember-cli server"
-      Dir.chdir(File.join(app.root,'ember')) do
+      in_ember_dir do
         system 'ember s --proxy http://localhost:4567 &', err: :out
       end
     end
@@ -90,6 +94,28 @@ module Middleman
       end
 
       dirs_exist && files_exist
+    end
+
+    def before_build
+      in_ember_dir do
+        system "ember build --environment=production"
+        FileUtils.cp 'dist/index.html', '../source/layouts/layout.erb'
+      end
+    end
+
+    def after_build
+      in_ember_dir do
+        FileUtils.rm 'dist/index.html'
+        FileUtils.cp_r 'dist/.', '../build'
+      end
+    end
+
+    private
+
+    def in_ember_dir
+      Dir.chdir(File.join(app.root,'ember')) do
+        yield
+      end
     end
   end
 end
