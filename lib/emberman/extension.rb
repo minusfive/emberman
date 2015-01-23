@@ -7,25 +7,22 @@ module Middleman
     def initialize(app, options_hash={}, &block)
       super
 
-      emberman = self
+      # Add ember directory to list of ignored files
+      app.config[:file_watcher_ignore] += [/^ember(\/|$)/]
+      app.configure :development do
+        sitemap.invalidate_resources_not_ignored_cache!
+      end
+      app.configure :build do
+        sitemap.invalidate_resources_not_ignored_cache!
+      end
 
-      # app.configure :development do
-      #   emberman.invalidate_resources_not_ignored_cache!
-      # end
-
-      # app.configure :build do
-      #   emberman.invalidate_resources_not_ignored_cache!
-      # end
-
-      # app.after_configuration do
-      #   # Add ember directory to list of ignored files
-      #   config[:file_watcher_ignore] += [/^ember(\/|$)/]
-      # end
-
+      # Don't initialize Ember app/server on build
       if app.environment == :build
         return
       end
 
+      # Initialize ember app/server
+      emberman = self
       app.ready do
         # app = self
         if emberman.ember_dir_exists?
