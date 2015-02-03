@@ -57,7 +57,7 @@ module Middleman
       app_name = options.app_name.to_s.parameterize
       app.logger.info "== Emberman: Generating ember-cli app \"#{app_name}\" in ./ember directory"
       Dir.chdir(app.root) do
-        system "ember new #{app_name}", err: :out
+        system "ember new #{app_name} --skip-git", err: :out
         if File.directory?(File.join(app.root, app_name))
           FileUtils.mv app_name, 'ember'
         end
