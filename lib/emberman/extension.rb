@@ -16,15 +16,12 @@ module Middleman
         sitemap.invalidate_resources_not_ignored_cache!
       end
 
-      # Don't initialize Ember app/server on build
-      if app.environment == :build
-        return
-      end
+      # Only initialize Ember app/server on development environment
+      return if app.environment != :development
 
       # Initialize ember app/server
       emberman = self
       app.ready do
-        # app = self
         if emberman.ember_dir_exists?
           if emberman.ember_cli_app_initialized?
             emberman.start_ember_server
